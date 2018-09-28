@@ -1,0 +1,465 @@
+2018-09-28 08:43:38 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "java.lang.IllegalStateException: File corrupted in chunk 1790, expected page length 4..384, got 113792 [1.4.196/6]"
+General error: "java.lang.IllegalStateException: File corrupted in chunk 1790, expected page length 4..384, got 113792 [1.4.196/6]" [50000-196]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convert(DbException.java:295)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
+	at org.h2.mvstore.MVStore.writeInBackground(MVStore.java:2516)
+	at org.h2.mvstore.MVStore$BackgroundWriterThread.run(MVStore.java:2720)
+Caused by: org.h2.jdbc.JdbcSQLException: Внутренняя ошибка: "java.lang.IllegalStateException: File corrupted in chunk 1790, expected page length 4..384, got 113792 [1.4.196/6]"
+General error: "java.lang.IllegalStateException: File corrupted in chunk 1790, expected page length 4..384, got 113792 [1.4.196/6]" [50000-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 5 more
+Caused by: java.lang.IllegalStateException: File corrupted in chunk 1790, expected page length 4..384, got 113792 [1.4.196/6]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:765)
+	at org.h2.mvstore.Page.read(Page.java:649)
+	at org.h2.mvstore.Page.read(Page.java:195)
+	at org.h2.mvstore.MVStore.readPage(MVStore.java:1952)
+	at org.h2.mvstore.MVMap.readPage(MVMap.java:741)
+	at org.h2.mvstore.MVMap.setRootPos(MVMap.java:751)
+	at org.h2.mvstore.MVStore.getMetaMap(MVStore.java:528)
+	at org.h2.mvstore.MVStore.openMapVersion(MVStore.java:409)
+	at org.h2.mvstore.MVMap.openVersion(MVMap.java:1133)
+	at org.h2.mvstore.MVMap.rewrite(MVMap.java:780)
+	at org.h2.mvstore.MVStore.compactRewrite(MVStore.java:1918)
+	at org.h2.mvstore.MVStore.compact(MVStore.java:1810)
+	at org.h2.mvstore.MVStore.writeInBackground(MVStore.java:2512)
+	... 1 more
+2018-09-28 09:21:50 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "java.lang.IllegalStateException: The file is locked: nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db [1.4.197/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db [1.4.197/7]" [50000-197]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convert(DbException.java:307)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2506)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:383)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:364)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2934)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:155)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:100)
+	at org.h2.engine.Database.getPageStore(Database.java:2538)
+	at org.h2.engine.Database.open(Database.java:709)
+	at org.h2.engine.Database.openDatabase(Database.java:286)
+	at org.h2.engine.Database.<init>(Database.java:280)
+	at org.h2.engine.Engine.openSession(Engine.java:66)
+	at org.h2.engine.Engine.openSession(Engine.java:179)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:157)
+	at org.h2.engine.Engine.createSession(Engine.java:140)
+	at org.h2.engine.Engine.createSession(Engine.java:28)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:351)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:103)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:208)
+	at org.eclipse.persistence.sessions.DefaultConnector.connect(DefaultConnector.java:100)
+	at org.eclipse.persistence.sessions.DatasourceLogin.connectToDatasource(DatasourceLogin.java:172)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.setOrDetectDatasource(DatabaseSessionImpl.java:233)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.loginAndDetectDatasource(DatabaseSessionImpl.java:815)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:256)
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:767)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryDelegate.getAbstractSession(EntityManagerFactoryDelegate.java:219)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryDelegate.createEntityManagerImpl(EntityManagerFactoryDelegate.java:327)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryImpl.createEntityManagerImpl(EntityManagerFactoryImpl.java:350)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryImpl.createEntityManager(EntityManagerFactoryImpl.java:313)
+	at com.art.forestbucha.Main.main(Main.java:26)
+Caused by: org.h2.jdbc.JdbcSQLException: Внутренняя ошибка: "java.lang.IllegalStateException: The file is locked: nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db [1.4.197/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db [1.4.197/7]" [50000-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	... 35 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db [1.4.197/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:870)
+	at org.h2.mvstore.FileStore.open(FileStore.java:173)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:350)
+	... 29 more
+2018-09-28 09:21:50 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "java.lang.IllegalStateException: The file is locked: nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db [1.4.197/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db [1.4.197/7]" [50000-197]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convert(DbException.java:307)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2506)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:383)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:364)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2934)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:155)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:100)
+	at org.h2.engine.Database.getPageStore(Database.java:2538)
+	at org.h2.engine.Database.open(Database.java:709)
+	at org.h2.engine.Database.openDatabase(Database.java:286)
+	at org.h2.engine.Database.<init>(Database.java:280)
+	at org.h2.engine.Engine.openSession(Engine.java:66)
+	at org.h2.engine.Engine.openSession(Engine.java:179)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:157)
+	at org.h2.engine.Engine.createSession(Engine.java:140)
+	at org.h2.engine.Engine.createSession(Engine.java:28)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:351)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:103)
+	at org.h2.Driver.connect(Driver.java:69)
+	at org.eclipse.persistence.sessions.DefaultConnector.directConnect(DefaultConnector.java:167)
+	at org.eclipse.persistence.sessions.DefaultConnector.connect(DefaultConnector.java:119)
+	at org.eclipse.persistence.sessions.DatasourceLogin.connectToDatasource(DatasourceLogin.java:172)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.setOrDetectDatasource(DatabaseSessionImpl.java:233)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.loginAndDetectDatasource(DatabaseSessionImpl.java:815)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:256)
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:767)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryDelegate.getAbstractSession(EntityManagerFactoryDelegate.java:219)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryDelegate.createEntityManagerImpl(EntityManagerFactoryDelegate.java:327)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryImpl.createEntityManagerImpl(EntityManagerFactoryImpl.java:350)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryImpl.createEntityManager(EntityManagerFactoryImpl.java:313)
+	at com.art.forestbucha.Main.main(Main.java:26)
+Caused by: org.h2.jdbc.JdbcSQLException: Внутренняя ошибка: "java.lang.IllegalStateException: The file is locked: nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db [1.4.197/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db [1.4.197/7]" [50000-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	... 34 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db [1.4.197/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:870)
+	at org.h2.mvstore.FileStore.open(FileStore.java:173)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:350)
+	... 28 more
+2018-09-28 09:52:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "SEQUENCE" не найдена
+Table "SEQUENCE" not found; SQL statement:
+UPDATE SEQUENCE SET SEQ_COUNT = SEQ_COUNT + ? WHERE SEQ_NAME = ? [42102-197]
+2018-09-28 10:12:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "SEQUENCE" не найдена
+Table "SEQUENCE" not found; SQL statement:
+UPDATE SEQUENCE SET SEQ_COUNT = SEQ_COUNT + ? WHERE SEQ_NAME = ? [42102-197]
+2018-09-28 10:15:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "SEQUENCE" не найдена
+Table "SEQUENCE" not found; SQL statement:
+UPDATE SEQUENCE SET SEQ_COUNT = SEQ_COUNT + ? WHERE SEQ_NAME = ? [42102-197]
+2018-09-28 10:15:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "SEQUENCE" не найдена
+Table "SEQUENCE" not found; SQL statement:
+UPDATE SEQUENCE SET SEQ_COUNT = SEQ_COUNT + ? WHERE SEQ_NAME = ? [42102-197]
+2018-09-28 10:16:53 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Последовательность "SEQ_GEN_SEQUENCE" не найдена
+Sequence "SEQ_GEN_SEQUENCE" not found; SQL statement:
+CALL NEXT VALUE FOR SEQ_GEN_SEQUENCE [90036-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.Parser.readSequence(Parser.java:5970)
+	at org.h2.command.Parser.readTerm(Parser.java:3131)
+	at org.h2.command.Parser.readFactor(Parser.java:2587)
+	at org.h2.command.Parser.readSum(Parser.java:2574)
+	at org.h2.command.Parser.readConcat(Parser.java:2544)
+	at org.h2.command.Parser.readCondition(Parser.java:2370)
+	at org.h2.command.Parser.readAnd(Parser.java:2342)
+	at org.h2.command.Parser.readExpression(Parser.java:2334)
+	at org.h2.command.Parser.parseCall(Parser.java:4854)
+	at org.h2.command.Parser.parsePrepared(Parser.java:382)
+	at org.h2.command.Parser.parse(Parser.java:335)
+	at org.h2.command.Parser.parse(Parser.java:307)
+	at org.h2.command.Parser.prepareCommand(Parser.java:278)
+	at org.h2.engine.Session.prepareLocal(Session.java:611)
+	at org.h2.engine.Session.prepareCommand(Session.java:549)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1247)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:304)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.prepareStatement(DatabaseAccessor.java:1595)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.prepareStatement(DatabaseAccessor.java:1544)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseCall.prepareStatement(DatabaseCall.java:806)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.basicExecuteCall(DatabaseAccessor.java:628)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeCall(DatabaseAccessor.java:567)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.basicExecuteCall(AbstractSession.java:2096)
+	at org.eclipse.persistence.sessions.server.ServerSession.executeCall(ServerSession.java:603)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeCall(DatasourceCallQueryMechanism.java:275)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeCall(DatasourceCallQueryMechanism.java:261)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeSelectCall(DatasourceCallQueryMechanism.java:332)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeSelect(DatasourceCallQueryMechanism.java:314)
+	at org.eclipse.persistence.queries.DataReadQuery.executeNonCursor(DataReadQuery.java:199)
+	at org.eclipse.persistence.queries.DataReadQuery.executeDatabaseQuery(DataReadQuery.java:154)
+	at org.eclipse.persistence.queries.DatabaseQuery.execute(DatabaseQuery.java:914)
+	at org.eclipse.persistence.queries.DataReadQuery.execute(DataReadQuery.java:139)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.internalExecuteQuery(AbstractSession.java:3349)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1895)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1877)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1827)
+	at org.eclipse.persistence.sequencing.QuerySequence.select(QuerySequence.java:325)
+	at org.eclipse.persistence.sequencing.QuerySequence.updateAndSelectSequence(QuerySequence.java:270)
+	at org.eclipse.persistence.sequencing.StandardSequence.getGeneratedVector(StandardSequence.java:75)
+	at org.eclipse.persistence.sequencing.Sequence.getGeneratedVector(Sequence.java:267)
+	at org.eclipse.persistence.internal.sequencing.SequencingManager$Preallocation_NoTransaction_State.getNextValue(SequencingManager.java:673)
+	at org.eclipse.persistence.internal.sequencing.SequencingManager.getNextValue(SequencingManager.java:1109)
+	at org.eclipse.persistence.internal.sequencing.ClientSessionSequencing.getNextValue(ClientSessionSequencing.java:72)
+	at org.eclipse.persistence.internal.descriptors.ObjectBuilder.assignSequenceNumber(ObjectBuilder.java:372)
+	at org.eclipse.persistence.internal.descriptors.ObjectBuilder.assignSequenceNumber(ObjectBuilder.java:331)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.assignSequenceNumber(UnitOfWorkImpl.java:532)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.registerNotRegisteredNewObjectForPersist(UnitOfWorkImpl.java:4388)
+	at org.eclipse.persistence.internal.sessions.RepeatableWriteUnitOfWork.registerNotRegisteredNewObjectForPersist(RepeatableWriteUnitOfWork.java:523)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.registerNewObjectForPersist(UnitOfWorkImpl.java:4333)
+	at org.eclipse.persistence.internal.jpa.EntityManagerImpl.persist(EntityManagerImpl.java:596)
+	at com.art.forestbucha.Main.main(Main.java:33)
+2018-09-28 10:18:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "SEQUENCE" не найдена
+Table "SEQUENCE" not found; SQL statement:
+UPDATE SEQUENCE SET SEQ_COUNT = SEQ_COUNT + ? WHERE SEQ_NAME = ? [42102-197]
+2018-09-28 10:41:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "SEQUENCE" не найдена
+Table "SEQUENCE" not found; SQL statement:
+UPDATE SEQUENCE SET SEQ_COUNT = SEQ_COUNT + ? WHERE SEQ_NAME = ? [42102-197]
+2018-09-28 13:36:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Внутренняя ошибка: "Внутренняя ошибка: ""java.lang.IllegalStateException: File corrupted in chunk 1790, expected page length 4..384, got 113792 [1.4.196/6]""
+General error: ""java.lang.IllegalStateException: File corrupted in chunk 1790, expected page length 4..384, got 113792 [1.4.196/6]"" [50000-196]"
+General error: "Внутренняя ошибка: ""java.lang.IllegalStateException: File corrupted in chunk 1790, expected page length 4..384, got 113792 [1.4.196/6]""
+General error: ""java.lang.IllegalStateException: File corrupted in chunk 1790, expected page length 4..384, got 113792 [1.4.196/6]"" [50000-196]" [50000-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.engine.Database.throwLastBackgroundException(Database.java:2038)
+	at org.h2.engine.Database.close(Database.java:1224)
+	at org.h2.engine.Database.removeSession(Database.java:1179)
+	at org.h2.engine.Session.close(Session.java:851)
+	at org.h2.jdbc.JdbcConnection.close(JdbcConnection.java:395)
+	at org.netbeans.modules.db.explorer.DatabaseConnection.disconnect(DatabaseConnection.java:1275)
+	at org.netbeans.modules.db.DatabaseModule.close(DatabaseModule.java:71)
+	at org.netbeans.core.startup.NbInstaller.closeAsync(NbInstaller.java:739)
+	at org.netbeans.ModuleManager.shutDownAsync(ModuleManager.java:2201)
+	at org.netbeans.core.startup.ModuleSystem.shutDownAsync(ModuleSystem.java:349)
+	at org.netbeans.core.NbLifeExit.doExit(NbLifeExit.java:137)
+	at org.netbeans.core.NbLifeExit.run(NbLifeExit.java:94)
+	at org.netbeans.modules.openide.util.NbMutexEventProvider$Event.doEvent(NbMutexEventProvider.java:118)
+	at org.netbeans.modules.openide.util.NbMutexEventProvider$Event.readAccess(NbMutexEventProvider.java:93)
+	at org.netbeans.modules.openide.util.LazyMutexImplementation.readAccess(LazyMutexImplementation.java:89)
+	at org.openide.util.Mutex.readAccess(Mutex.java:260)
+	at org.netbeans.core.NbLifecycleManager.exit(NbLifecycleManager.java:213)
+	at org.netbeans.core.NbLifecycleManager.exit(NbLifecycleManager.java:119)
+	at org.netbeans.modules.autoupdate.services.InstallSupportImpl.doRestart(InstallSupportImpl.java:526)
+	at org.netbeans.api.autoupdate.InstallSupport.doRestart(InstallSupport.java:176)
+	at org.netbeans.modules.autoupdate.ui.wizards.InstallStep.storeSettings(InstallStep.java:853)
+	at org.netbeans.modules.autoupdate.ui.wizards.InstallStep.storeSettings(InstallStep.java:111)
+	at org.openide.WizardDescriptor.callInstantiateOpen(WizardDescriptor.java:1615)
+	at org.openide.WizardDescriptor.callInstantiate(WizardDescriptor.java:1570)
+	at org.openide.WizardDescriptor.access$2300(WizardDescriptor.java:92)
+	at org.openide.WizardDescriptor$Listener$2$1.run(WizardDescriptor.java:2257)
+	at org.openide.WizardDescriptor$Listener$2.run(WizardDescriptor.java:2315)
+	at org.openide.WizardDescriptor.lazyValidate(WizardDescriptor.java:1516)
+	at org.openide.WizardDescriptor.access$2000(WizardDescriptor.java:92)
+	at org.openide.WizardDescriptor$Listener.actionPerformed(WizardDescriptor.java:2322)
+	at sun.reflect.GeneratedMethodAccessor66.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.openide.util.WeakListenerImpl$ProxyListener.invoke(WeakListenerImpl.java:487)
+	at com.sun.proxy.$Proxy29.actionPerformed(Unknown Source)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6539)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6304)
+	at java.awt.Container.processEvent(Container.java:2239)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2297)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4904)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4535)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4476)
+	at java.awt.Container.dispatchEventImpl(Container.java:2283)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:760)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:84)
+	at java.awt.EventQueue$4.run(EventQueue.java:733)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:730)
+	at org.netbeans.core.TimableEventQueue.dispatchEvent(TimableEventQueue.java:159)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:205)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:109)
+	at java.awt.WaitDispatchSupport$2.run(WaitDispatchSupport.java:190)
+	at java.awt.WaitDispatchSupport$4.run(WaitDispatchSupport.java:235)
+	at java.awt.WaitDispatchSupport$4.run(WaitDispatchSupport.java:233)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.awt.WaitDispatchSupport.enter(WaitDispatchSupport.java:233)
+	at java.awt.Dialog.show(Dialog.java:1084)
+	at org.netbeans.core.windows.services.NbPresenter.superShow(NbPresenter.java:1086)
+	at org.netbeans.core.windows.services.NbPresenter.doShow(NbPresenter.java:1136)
+	at org.netbeans.core.windows.services.NbPresenter.run(NbPresenter.java:1108)
+	at org.netbeans.core.windows.services.NbPresenter.run(NbPresenter.java:131)
+	at org.netbeans.modules.openide.util.NbMutexEventProvider$Event.doEventAccess(NbMutexEventProvider.java:138)
+	at org.netbeans.modules.openide.util.NbMutexEventProvider$Event.readAccess(NbMutexEventProvider.java:98)
+	at org.netbeans.modules.openide.util.LazyMutexImplementation.readAccess(LazyMutexImplementation.java:94)
+	at org.openide.util.Mutex.readAccess(Mutex.java:218)
+	at org.netbeans.core.windows.services.NbPresenter.show(NbPresenter.java:1093)
+	at java.awt.Component.show(Component.java:1671)
+	at java.awt.Component.setVisible(Component.java:1623)
+	at java.awt.Window.setVisible(Window.java:1014)
+	at java.awt.Dialog.setVisible(Dialog.java:1005)
+	at org.netbeans.modules.autoupdate.ui.wizards.InstallUnitWizard.implInvokeWizard(InstallUnitWizard.java:104)
+	at org.netbeans.modules.autoupdate.ui.wizards.InstallUnitWizard.invokeWizard(InstallUnitWizard.java:83)
+	at org.netbeans.modules.autoupdate.ui.wizards.InstallUnitWizard.invokeWizard(InstallUnitWizard.java:77)
+	at org.netbeans.modules.autoupdate.ui.wizards.InstallUnitWizard.invokeWizard(InstallUnitWizard.java:73)
+	at org.netbeans.modules.autoupdate.ui.UnitTab$AvailableAction.performerImpl(UnitTab.java:1386)
+	at org.netbeans.modules.autoupdate.ui.UnitTab$TabAction.actionPerformed(UnitTab.java:1114)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6539)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6304)
+	at java.awt.Container.processEvent(Container.java:2239)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2297)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4904)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4535)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4476)
+	at java.awt.Container.dispatchEventImpl(Container.java:2283)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:760)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:84)
+	at java.awt.EventQueue$4.run(EventQueue.java:733)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:730)
+	at org.netbeans.core.TimableEventQueue.dispatchEvent(TimableEventQueue.java:159)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:205)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+Caused by: org.h2.message.DbException: Внутренняя ошибка: "java.lang.IllegalStateException: File corrupted in chunk 1790, expected page length 4..384, got 113792 [1.4.196/6]"
+General error: "java.lang.IllegalStateException: File corrupted in chunk 1790, expected page length 4..384, got 113792 [1.4.196/6]" [50000-196]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convert(DbException.java:295)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
+	at org.h2.mvstore.MVStore.writeInBackground(MVStore.java:2516)
+	at org.h2.mvstore.MVStore$BackgroundWriterThread.run(MVStore.java:2720)
+Caused by: org.h2.jdbc.JdbcSQLException: Внутренняя ошибка: "java.lang.IllegalStateException: File corrupted in chunk 1790, expected page length 4..384, got 113792 [1.4.196/6]"
+General error: "java.lang.IllegalStateException: File corrupted in chunk 1790, expected page length 4..384, got 113792 [1.4.196/6]" [50000-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 5 more
+Caused by: java.lang.IllegalStateException: File corrupted in chunk 1790, expected page length 4..384, got 113792 [1.4.196/6]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:765)
+	at org.h2.mvstore.Page.read(Page.java:649)
+	at org.h2.mvstore.Page.read(Page.java:195)
+	at org.h2.mvstore.MVStore.readPage(MVStore.java:1952)
+	at org.h2.mvstore.MVMap.readPage(MVMap.java:741)
+	at org.h2.mvstore.MVMap.setRootPos(MVMap.java:751)
+	at org.h2.mvstore.MVStore.getMetaMap(MVStore.java:528)
+	at org.h2.mvstore.MVStore.openMapVersion(MVStore.java:409)
+	at org.h2.mvstore.MVMap.openVersion(MVMap.java:1133)
+	at org.h2.mvstore.MVMap.rewrite(MVMap.java:780)
+	at org.h2.mvstore.MVStore.compactRewrite(MVStore.java:1918)
+	at org.h2.mvstore.MVStore.compact(MVStore.java:1810)
+	at org.h2.mvstore.MVStore.writeInBackground(MVStore.java:2512)
+	... 1 more
+2018-09-28 13:36:05 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "java.lang.IllegalStateException: Reading from nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db failed; file length 45056 read length 1024 at 258048 [1.4.196/1]"
+General error: "java.lang.IllegalStateException: Reading from nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db failed; file length 45056 read length 1024 at 258048 [1.4.196/1]" [50000-196]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convert(DbException.java:295)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
+	at org.h2.mvstore.MVStore.writeInBackground(MVStore.java:2516)
+	at org.h2.mvstore.MVStore$BackgroundWriterThread.run(MVStore.java:2720)
+Caused by: org.h2.jdbc.JdbcSQLException: Внутренняя ошибка: "java.lang.IllegalStateException: Reading from nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db failed; file length 45056 read length 1024 at 258048 [1.4.196/1]"
+General error: "java.lang.IllegalStateException: Reading from nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db failed; file length 45056 read length 1024 at 258048 [1.4.196/1]" [50000-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 5 more
+Caused by: java.lang.IllegalStateException: Reading from nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db failed; file length 45056 read length 1024 at 258048 [1.4.196/1]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:765)
+	at org.h2.mvstore.DataUtils.readFully(DataUtils.java:435)
+	at org.h2.mvstore.FileStore.readFully(FileStore.java:98)
+	at org.h2.mvstore.MVStore.readChunkHeader(MVStore.java:1582)
+	at org.h2.mvstore.MVStore.getMetaMap(MVStore.java:526)
+	at org.h2.mvstore.MVStore.openMapVersion(MVStore.java:409)
+	at org.h2.mvstore.MVMap.openVersion(MVMap.java:1133)
+	at org.h2.mvstore.MVMap.rewrite(MVMap.java:780)
+	at org.h2.mvstore.MVStore.compactRewrite(MVStore.java:1918)
+	at org.h2.mvstore.MVStore.compact(MVStore.java:1810)
+	at org.h2.mvstore.MVStore.writeInBackground(MVStore.java:2512)
+	... 1 more
+Caused by: java.io.EOFException
+	at org.h2.mvstore.DataUtils.readFully(DataUtils.java:423)
+	... 10 more
+2018-09-28 13:36:13 database: could not close the database
+org.h2.message.DbException: Внутренняя ошибка: "Внутренняя ошибка: ""java.lang.IllegalStateException: Reading from nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db failed; file length 45056 read length 1024 at 258048 [1.4.196/1]""
+General error: ""java.lang.IllegalStateException: Reading from nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db failed; file length 45056 read length 1024 at 258048 [1.4.196/1]"" [50000-196]"
+General error: "Внутренняя ошибка: ""java.lang.IllegalStateException: Reading from nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db failed; file length 45056 read length 1024 at 258048 [1.4.196/1]""
+General error: ""java.lang.IllegalStateException: Reading from nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db failed; file length 45056 read length 1024 at 258048 [1.4.196/1]"" [50000-196]" [50000-196]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.engine.Database.throwLastBackgroundException(Database.java:2038)
+	at org.h2.engine.Database.close(Database.java:1224)
+	at org.h2.engine.DatabaseCloser.run(DatabaseCloser.java:63)
+Caused by: org.h2.jdbc.JdbcSQLException: Внутренняя ошибка: "Внутренняя ошибка: ""java.lang.IllegalStateException: Reading from nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db failed; file length 45056 read length 1024 at 258048 [1.4.196/1]""
+General error: ""java.lang.IllegalStateException: Reading from nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db failed; file length 45056 read length 1024 at 258048 [1.4.196/1]"" [50000-196]"
+General error: "Внутренняя ошибка: ""java.lang.IllegalStateException: Reading from nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db failed; file length 45056 read length 1024 at 258048 [1.4.196/1]""
+General error: ""java.lang.IllegalStateException: Reading from nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db failed; file length 45056 read length 1024 at 258048 [1.4.196/1]"" [50000-196]" [50000-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 4 more
+Caused by: org.h2.message.DbException: Внутренняя ошибка: "java.lang.IllegalStateException: Reading from nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db failed; file length 45056 read length 1024 at 258048 [1.4.196/1]"
+General error: "java.lang.IllegalStateException: Reading from nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db failed; file length 45056 read length 1024 at 258048 [1.4.196/1]" [50000-196]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convert(DbException.java:295)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
+	at org.h2.mvstore.MVStore.writeInBackground(MVStore.java:2516)
+	at org.h2.mvstore.MVStore$BackgroundWriterThread.run(MVStore.java:2720)
+Caused by: org.h2.jdbc.JdbcSQLException: Внутренняя ошибка: "java.lang.IllegalStateException: Reading from nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db failed; file length 45056 read length 1024 at 258048 [1.4.196/1]"
+General error: "java.lang.IllegalStateException: Reading from nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db failed; file length 45056 read length 1024 at 258048 [1.4.196/1]" [50000-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 5 more
+Caused by: java.lang.IllegalStateException: Reading from nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db failed; file length 45056 read length 1024 at 258048 [1.4.196/1]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:765)
+	at org.h2.mvstore.DataUtils.readFully(DataUtils.java:435)
+	at org.h2.mvstore.FileStore.readFully(FileStore.java:98)
+	at org.h2.mvstore.MVStore.readChunkHeader(MVStore.java:1582)
+	at org.h2.mvstore.MVStore.getMetaMap(MVStore.java:526)
+	at org.h2.mvstore.MVStore.openMapVersion(MVStore.java:409)
+	at org.h2.mvstore.MVMap.openVersion(MVMap.java:1133)
+	at org.h2.mvstore.MVMap.rewrite(MVMap.java:780)
+	at org.h2.mvstore.MVStore.compactRewrite(MVStore.java:1918)
+	at org.h2.mvstore.MVStore.compact(MVStore.java:1810)
+	at org.h2.mvstore.MVStore.writeInBackground(MVStore.java:2512)
+	... 1 more
+Caused by: java.io.EOFException
+	at org.h2.mvstore.DataUtils.readFully(DataUtils.java:423)
+	... 10 more
+2018-09-28 13:36:14 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "java.lang.IllegalStateException: Reading from nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db failed; file length 45056 read length 1024 at 258048 [1.4.196/1]"
+General error: "java.lang.IllegalStateException: Reading from nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db failed; file length 45056 read length 1024 at 258048 [1.4.196/1]" [50000-196]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convert(DbException.java:295)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
+	at org.h2.mvstore.MVStore.writeInBackground(MVStore.java:2516)
+	at org.h2.mvstore.MVStore$BackgroundWriterThread.run(MVStore.java:2720)
+Caused by: org.h2.jdbc.JdbcSQLException: Внутренняя ошибка: "java.lang.IllegalStateException: Reading from nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db failed; file length 45056 read length 1024 at 258048 [1.4.196/1]"
+General error: "java.lang.IllegalStateException: Reading from nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db failed; file length 45056 read length 1024 at 258048 [1.4.196/1]" [50000-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 5 more
+Caused by: java.lang.IllegalStateException: Reading from nio:/home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha.mv.db failed; file length 45056 read length 1024 at 258048 [1.4.196/1]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:765)
+	at org.h2.mvstore.DataUtils.readFully(DataUtils.java:435)
+	at org.h2.mvstore.FileStore.readFully(FileStore.java:98)
+	at org.h2.mvstore.MVStore.readChunkHeader(MVStore.java:1582)
+	at org.h2.mvstore.MVStore.getMetaMap(MVStore.java:526)
+	at org.h2.mvstore.MVStore.openMapVersion(MVStore.java:409)
+	at org.h2.mvstore.MVMap.openVersion(MVMap.java:1133)
+	at org.h2.mvstore.MVMap.rewrite(MVMap.java:780)
+	at org.h2.mvstore.MVStore.compactRewrite(MVStore.java:1918)
+	at org.h2.mvstore.MVStore.compact(MVStore.java:1810)
+	at org.h2.mvstore.MVStore.writeInBackground(MVStore.java:2512)
+	... 1 more
+Caused by: java.io.EOFException
+	at org.h2.mvstore.DataUtils.readFully(DataUtils.java:423)
+	... 10 more
