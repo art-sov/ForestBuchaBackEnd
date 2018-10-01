@@ -20,7 +20,12 @@ public class UUIDConverter implements Converter{
     @Override 
     public UUID convertDataValueToObjectValue(Object dataValue, 
             Session session) { 
-        return (UUID) dataValue; 
+        if (dataValue instanceof String){
+            return UUID.fromString(dataValue.toString());
+        }
+        else {
+         return (UUID) dataValue;   
+        } 
     } 
  
     @Override 
@@ -39,7 +44,7 @@ public class UUIDConverter implements Converter{
         } 
  
         field.setSqlType(java.sql.Types.OTHER); 
-        field.setTypeName("uuid"); 
+        field.setTypeName("java.util.UUID"); 
         field.setColumnDefinition("UUID"); 
     }
 }

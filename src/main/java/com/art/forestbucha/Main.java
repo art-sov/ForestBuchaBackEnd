@@ -34,7 +34,9 @@ public class Main {
         manager.persist(electricMeter);
         et.commit();
         
-        electricMeter = (ElectricMeters) manager.createNamedQuery("ElectricMeters.findElectricMetersByNote").getSingleResult();
+        electricMeter = (ElectricMeters) manager.createNamedQuery("ElectricMeters.findElectricMetersByNote")
+                .setParameter("note", "note1")
+                .getSingleResult();
         
         System.out.println(electricMeter);
         

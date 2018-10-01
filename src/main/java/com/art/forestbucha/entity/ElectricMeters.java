@@ -76,6 +76,10 @@ public class ElectricMeters implements Serializable{
     public void setNote(String note) {
         this.note = note;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "ElectricMeters { " + "\nid = " + id + ", \naddYardLighting = " + 
+                addYardLighting + ", \nnote = " + note + " }";
+    }
 }
