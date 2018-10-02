@@ -44,9 +44,9 @@ public class ElecricMetersTest {
     @Test
     public void findElectricMetersByIdTest() throws Exception {
         ElectricMeters electricMeters = em.find(ElectricMeters.class, 
-                UUID.fromString("2f517777-281a-4fe6-85e2-bc9831b2c9fa"));
+                UUID.fromString("77777777-281a-4fe6-85e2-bc9831b2c9fa"));
         assertEquals(true, electricMeters.isAddYardLighting());
-        assertEquals("note1", electricMeters.getNote());
+        assertEquals("дом 12, квартира 17", electricMeters.getNote());
     }
     
     @Test 
@@ -63,9 +63,9 @@ public class ElecricMetersTest {
     public void findElectricMetersByNoteTest(){
                 ElectricMeters electricMeters = em.createNamedQuery("ElectricMeters.findElectricMetersByNote", 
                 ElectricMeters.class)
-                .setParameter("note", "note1")
+                .setParameter("note", "дом 12, квартира 18")
                 .getSingleResult();
-        assertEquals("note1", electricMeters.getNote());
+        assertEquals("дом 12, квартира 18", electricMeters.getNote());
     }
     
     @Test (expected = EntityNotFoundException.class)

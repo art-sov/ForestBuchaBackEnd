@@ -45,19 +45,19 @@ public class ElectricMetersValueTest {
     @Test
     public void findElectricMetersValueByIdTest() throws Exception {
         ElectricMetersValue emv = em.find(ElectricMetersValue.class, 
-                UUID.fromString("9ec76737-ec67-4f2f-be94-9b7ff9e38d58"));
+                UUID.fromString("11111111-c05a-496f-b95c-49d255339700"));
         
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String date = sdf.format(emv.getDate());
-        assertEquals("2018-09-25", date);
-        assertEquals(1222, emv.getMeterCount());
+        assertEquals("2018-07-01", date);
+        assertEquals(1000, emv.getMeterCount());
     }
     
     @Test
-      public void shouldCreateElecricMetersValue() throws Exception {
+    public void shouldCreateElecricMetersValue() throws Exception {
         
         ElectricMetersValue emv = new ElectricMetersValue (UUID.randomUUID(), new Date(), 
-                7777, "noteTest", UUID.fromString("2f517777-281a-4fe6-85e2-bc9831b2c9fa"));
+                7777, "noteTest", UUID.fromString("77777777-281a-4fe6-85e2-bc9831b2c9fa"));
         tx.begin();
         em.persist(emv);
         tx.commit();

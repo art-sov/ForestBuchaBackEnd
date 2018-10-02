@@ -7,14 +7,19 @@ package com.art.forestbucha.entity;
 
 import com.art.forestbucha.util.UUIDConverter;
 import java.io.Serializable;
+import java.util.List;
 import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import org.eclipse.persistence.annotations.UuidGenerator;
 import org.eclipse.persistence.annotations.Converter;
@@ -50,6 +55,15 @@ public class ElectricMeters implements Serializable {
     @Column(name = "NOTE", length = 255)
     private String note;
 
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "electric_meter_id")
+    @OrderBy("date ASC")
+    private List<ElectricMetersValue> valuesList;
+    
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "electric_meter_id")
+    private List<ElectricMetersAccrual> acccrualList;
+    
     public ElectricMeters() {
     }
 

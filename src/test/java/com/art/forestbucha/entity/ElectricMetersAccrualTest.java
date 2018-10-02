@@ -5,7 +5,6 @@
  */
 package com.art.forestbucha.entity;
 
-import java.util.Date;
 import java.util.UUID;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -44,9 +43,9 @@ public class ElectricMetersAccrualTest {
     @Test
     public void findElectricMetersAccrualByIdTest() throws Exception {
         ElectricMetersAccrual ema = em.find(ElectricMetersAccrual.class, 
-                UUID.fromString("4a2a0051-412c-4eb1-849a-cc1b00bbe7ed"));
-        assertEquals(1111, ema.getValueAccrual());
-        assertEquals("note1", ema.getNote());
+                UUID.fromString("11111120-c05a-496f-b95c-49d255339700"));
+        assertEquals(100, ema.getValueAccrual());
+        assertEquals("за июль", ema.getNote());
      }
     
     @Test
@@ -55,7 +54,7 @@ public class ElectricMetersAccrualTest {
         ElectricMetersAccrual ema = new ElectricMetersAccrual (UUID.randomUUID(), 
                 UUID.randomUUID(),         
                 7777, "noteTest", 
-                UUID.fromString("2f517777-281a-4fe6-85e2-bc9831b2c9fa"));
+                UUID.fromString("77777777-281a-4fe6-85e2-bc9831b2c9fa"));
         tx.begin();
         em.persist(ema);
         tx.commit();
