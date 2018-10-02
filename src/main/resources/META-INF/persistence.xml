@@ -12,4 +12,18 @@
       <property name="javax.persistence.jdbc.password" value=""/>
     </properties>
   </persistence-unit>
+  <persistence-unit name="h2test" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <!-- Converters -->
+    <class>com.art.forestbucha.entity.ElectricMeters</class>
+    <class>com.art.forestbucha.util.UUIDConverter</class>
+    <class>com.art.forestbucha.entity.ElectricMetersAccrual</class>
+    <class>com.art.forestbucha.entity.ElectricMetersValue</class>
+    <properties>
+      <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:h2:file://home/artem/NetBeansProjects/ForestBuchaBackEnd/src/main/resources/db/bucha"/>
+      <property name="javax.persistence.jdbc.user" value="sa"/>
+      <property name="javax.persistence.jdbc.password" value=""/>
+    </properties>
+  </persistence-unit>
 </persistence>

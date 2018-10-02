@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import org.eclipse.persistence.annotations.UuidGenerator;
@@ -27,19 +28,26 @@ import org.eclipse.persistence.annotations.Convert;
 @UuidGenerator(name = "uuid")
 @Converter(name = "uuidConverter", converterClass = UUIDConverter.class)
 @Table(name = "ELECTRIC_METERS")
-@NamedQuery(name = "ElectricMeters.findElectricMetersByNote", query = "SELECT e FROM ElectricMeters e WHERE e.note = :note")
-public class ElectricMeters implements Serializable{
+@NamedQueries({
+    @NamedQuery(name = "ElectricMeters.findAll",
+            query = "SELECT e FROM ElectricMeters e"),
+    @NamedQuery(name = "ElectricMeters.findElectricMetersById",
+            query = "SELECT e FROM ElectricMeters e WHERE e.id = :id"),
+    @NamedQuery(name = "ElectricMeters.findElectricMetersByNote", 
+            query = "SELECT e FROM ElectricMeters e WHERE e.note = :note")
+})
+public class ElectricMeters implements Serializable {
     
     @Id
     @GeneratedValue(generator = "uuid", strategy = IDENTITY)
     @Convert("uuidConverter")
-    @Column (name = "ID")
+    @Column (name = "ID", nullable = false)
     private UUID id;
     
-    @Column(name = "ADD_YARD_LIGHTING")
+    @Column(name = "ADD_YARD_LIGHTING", nullable = false)
     private boolean addYardLighting;
     
-    @Column(name = "NOTE")
+    @Column(name = "NOTE", length = 255)
     private String note;
 
     public ElectricMeters() {
@@ -51,8 +59,6 @@ public class ElectricMeters implements Serializable{
         this.note = note;
     }
     
-  
-
     public UUID getId() {
         return id;
     }
@@ -79,7 +85,8 @@ public class ElectricMeters implements Serializable{
 
     @Override
     public String toString() {
-        return "ElectricMeters { " + "\nid = " + id + ", \naddYardLighting = " + 
-                addYardLighting + ", \nnote = " + note + " }";
+        return "ElectricMeters { " + "\nid = " + id + 
+                ", \naddYardLighting = " + addYardLighting + 
+                ", \nnote = " + note + " }";
     }
 }
