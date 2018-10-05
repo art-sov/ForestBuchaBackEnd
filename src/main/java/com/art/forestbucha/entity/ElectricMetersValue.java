@@ -66,6 +66,13 @@ public class ElectricMetersValue implements Serializable {
         this.electricMeterId = electricMeterId;
     }
     
+      public ElectricMetersValue(Date date, int meterCount, String note, UUID electricMeterId) {
+        this.date = date;
+        this.meterCount = meterCount;
+        this.note = note;
+        this.electricMeterId = electricMeterId;
+    }
+    
     public UUID getId() {
         return id;
     }

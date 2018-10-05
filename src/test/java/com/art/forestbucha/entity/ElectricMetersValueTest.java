@@ -54,7 +54,7 @@ public class ElectricMetersValueTest {
     }
     
     @Test
-    public void shouldCreateElecricMetersValue() throws Exception {
+    public void createElecricMetersValueTest() throws Exception {
         
         ElectricMetersValue emv = new ElectricMetersValue (UUID.randomUUID(), new Date(), 
                 7777, "noteTest", UUID.fromString("77777777-281a-4fe6-85e2-bc9831b2c9fa"));

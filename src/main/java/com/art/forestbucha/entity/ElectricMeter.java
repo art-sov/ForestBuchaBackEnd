@@ -9,6 +9,9 @@ import com.art.forestbucha.util.UUIDConverter;
 import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -21,6 +24,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.eclipse.persistence.annotations.UuidGenerator;
 import org.eclipse.persistence.annotations.Converter;
 import org.eclipse.persistence.annotations.Convert;
@@ -34,14 +38,17 @@ import org.eclipse.persistence.annotations.Convert;
 @Converter(name = "uuidConverter", converterClass = UUIDConverter.class)
 @Table(name = "ELECTRIC_METERS")
 @NamedQueries({
-    @NamedQuery(name = "ElectricMeters.findAll",
-            query = "SELECT e FROM ElectricMeters e"),
-    @NamedQuery(name = "ElectricMeters.findElectricMetersById",
-            query = "SELECT e FROM ElectricMeters e WHERE e.id = :id"),
-    @NamedQuery(name = "ElectricMeters.findElectricMetersByNote", 
-            query = "SELECT e FROM ElectricMeters e WHERE e.note = :note")
+    @NamedQuery(name = ElectricMeter.FIND_ALL,
+            query = "SELECT e FROM ElectricMeter e"),
+    @NamedQuery(name = "ElectricMeter.findElectricMetersById",
+            query = "SELECT e FROM ElectricMeter e WHERE e.id = :id"),
+    @NamedQuery(name = "ElectricMeter.findElectricMetersByNote", 
+            query = "SELECT e FROM ElectricMeter e WHERE e.note = :note")
 })
-public class ElectricMeters implements Serializable {
+@XmlRootElement
+public class ElectricMeter implements Serializable {
+    
+    public static final String FIND_ALL = "ElectricMeter.findAll";
     
     @Id
     @GeneratedValue(generator = "uuid", strategy = IDENTITY)
@@ -55,24 +62,29 @@ public class ElectricMeters implements Serializable {
     @Column(name = "NOTE", length = 255)
     private String note;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER, orphanRemoval = true, cascade = CascadeType.ALL)
     @JoinColumn(name = "electric_meter_id")
     @OrderBy("date ASC")
     private List<ElectricMetersValue> valuesList;
     
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER, orphanRemoval = true)
     @JoinColumn(name = "electric_meter_id")
     private List<ElectricMetersAccrual> acccrualList;
     
-    public ElectricMeters() {
+    public ElectricMeter() {
     }
 
-    public ElectricMeters(UUID id, boolean addYardLighting, String note) {
+    public ElectricMeter(UUID id, boolean addYardLighting, String note) {
         this.id = id;
         this.addYardLighting = addYardLighting;
         this.note = note;
     }
     
+     public ElectricMeter(boolean addYardLighting, String note) {
+        this.addYardLighting = addYardLighting;
+        this.note = note;
+    }
+   
     public UUID getId() {
         return id;
     }
@@ -97,10 +109,36 @@ public class ElectricMeters implements Serializable {
         this.note = note;
     }
 
+    public List<ElectricMetersValue> getValuesList() {
+        return valuesList;
+    }
+
+    public void setValuesList(List<ElectricMetersValue> valuesList) {
+        this.valuesList = valuesList;
+    }
+
+    public List<ElectricMetersAccrual> getAcccrualList() {
+        return acccrualList;
+    }
+
+    public void setAcccrualList(List<ElectricMetersAccrual> acccrualList) {
+        this.acccrualList = acccrualList;
+    }
+    
+    public JsonObject toJson() {
+        return Json.createObjectBuilder()
+                .add("id", this.id.toString())
+                .add("addYardLighting", this.addYardLighting)
+                .add("note", this.note)
+                .build();
+    }
+    
+    
     @Override
     public String toString() {
         return "ElectricMeters { " + "\nid = " + id + 
                 ", \naddYardLighting = " + addYardLighting + 
                 ", \nnote = " + note + " }";
     }
+    
 }
