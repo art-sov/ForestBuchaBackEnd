@@ -33,7 +33,7 @@ import javax.ws.rs.core.UriInfo;
  * @author artem
  */
 @Loggable
-@Path("/electric_meter")
+@Path("/")
 @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 @Stateless
